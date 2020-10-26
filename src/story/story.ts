@@ -2465,8 +2465,8 @@ export const story: StoryItem[] = [
     id: 233,
     text: `The driver flicks his cigarette into the gutter and steps into the motor coach. Its engine coughs into life. You board, grateful that you will be the only passenger for the initial part of your trip at least. With mixed emotions, you watch from the window as the tired avenues of your old home slip behind you, receding into the distance. For a few minutes, you can still see the church spire over the brow of a low hill. Then the road dips and it, too, is gone.
     Arkham is your new home. You will travel there, and make a new start.
-    You will see two smaller boxes to the right of each characteristic value. Halve each value, rounding down, and write the result in the upper right box. Also, divide each value by 5, again rounding down, and write the result in the lower right box. We will use these numbers later. If you are using the interactive PDF version of the investigator sheet, you’ll see it does all of the math for you!
-    In the strip below, you will see tracks that record Sanity and magic points. Beginning Sanity is equal to your original POW, and beginning magic points are the same as the value you’ve just assigned for POW divided by 5. Mark these on the tracks.`,
+    <i>You will see two smaller boxes to the right of each characteristic value. Halve each value, rounding down, and write the result in the upper right box. Also, divide each value by 5, again rounding down, and write the result in the lower right box. We will use these numbers later. If you are using the interactive PDF version of the investigator sheet, you’ll see it does all of the math for you!
+    In the strip below, you will see tracks that record Sanity and magic points. Beginning Sanity is equal to your original POW, and beginning magic points are the same as the value you’ve just assigned for POW divided by 5. Mark these on the tracks.</i>`,
     options: [{ goto: 134 }]
   },
   {

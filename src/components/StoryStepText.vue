@@ -11,14 +11,24 @@
   ></div>
 </template>
 
-<script setup="props" lang="ts">
+<script lang="ts">
 import { useState } from '@/store';
-import { computed } from 'vue';
-declare const props: { // eslint-disable-line
-  text: string
-}
-const state = useState()
-export const textSize = computed(() => state?.state.textSize)
+import { computed, defineComponent } from 'vue';
+
+export default defineComponent({
+  name: 'Navbar',
+  props: {
+    text: {
+      type: String,
+      default: '',
+    }
+  },
+  setup() {
+    const state = useState()
+    const textSize = computed(() => state?.state.textSize)
+    return { textSize }
+  }
+});
 </script>
 
 <style lang="scss" scoped>
