@@ -71,10 +71,23 @@
           <DiceD10Icon fill="#efefef" />
           <span>Roll D10</span>
         </button>
+        <button class="roll-buton" @click="roll(20)">
+          <DiceD20Icon fill="#efefef" />
+          <span>Roll D20</span>
+        </button>
         <button class="roll-buton" @click="roll(100)">
           <DiceMultIcon fill="#efefef" />
           <span>Roll D100</span>
         </button>
+      </span>
+
+      <span class="flex w-full p-4 border-b">
+        <span class="text-lg text-white">
+          Previous Rolls: 
+          <div v-for="(roll, index) in rollLog.slice(0, 9)" :key="index" class="text-left">
+            {{ roll }}
+          </div>
+        </span>
       </span>
     </aside>
   </nav>
@@ -115,6 +128,7 @@ export default defineComponent({
     const state = useState()
     const isOpenLeft = ref(false);
     const isRolling = ref(false);
+    const rollLog = ref<string[]>([]);
     const currentRoll = ref<number | null>(null);
     watch(isOpenLeft, () => {
       if (isOpenLeft.value) document.body.style.setProperty("overflow", "hidden");
@@ -127,13 +141,17 @@ export default defineComponent({
       isRolling.value = true;
       const roll = Math.floor(Math.random() * max) + 1
       currentRoll.value = roll;
-      setTimeout(() => isRolling.value = false, 1000)
+      setTimeout(() => {
+        rollLog.value.unshift(`D${max}: ${roll}`);
+        isRolling.value = false
+      }, 1000)
     } 
 
     return {
       isOpenLeft,
       currentRoll,
       roll,
+      rollLog,
       isRolling,
       incrementTextSize: state?.incrementTextSize,
     }
