@@ -1,9 +1,7 @@
 <template>
-  <router-link :to="{ name: 'Story', params: { step: goto } }">
-    <button class="step-option">
-      {{ index }}. {{ text || 'Continue' }}
-    </button>
-  </router-link>
+  <button tabindex="0" class="step-option" @click="$emit('update:step', goto)">
+    {{ index }}. {{ text || 'Continue' }}
+  </button>
 </template>
 
 <script lang="ts">

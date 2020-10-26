@@ -2,23 +2,17 @@
   <div class="whitespace-pre-wrap mb-2" v-html="descriptionText"></div>
 
   <div class="wrapper">
-    <router-link :to="{ name: 'Story', params: { step: roll.succeed } }">
-      <button class="success-link">
-        {{ roll.successText || 'Success' }}
-      </button>
-    </router-link>
+    <button class="success-link" @click="$emit('update:step', roll.succeed)">
+      {{ roll.successText || 'Success' }}
+    </button>
 
-    <router-link :to="{ name: 'Story', params: { step: roll.fail } }">
-      <button class="fail-link">
-        {{ roll.failText || 'Failure' }}
-      </button>
-    </router-link>
+    <button class="fail-link" @click="$emit('update:step', roll.fail)">
+      {{ roll.failText || 'Failure' }}
+    </button>
 
-    <router-link v-if="roll.fumble" :to="{ name: 'Story', params: { step: roll.fumble } }">
-      <button class="fumble-link">
-        {{ 'Fumble' }}
-      </button>
-    </router-link>
+    <button v-if="roll.fumble" class="fumble-link" @click="$emit('update:step', roll.fumble)">
+      {{ 'Fumble' }}
+    </button>
   </div>
 </template>
 

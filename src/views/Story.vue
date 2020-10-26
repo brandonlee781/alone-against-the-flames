@@ -15,22 +15,29 @@
     </div>
 
     <div class="mt-3">
-      <template v-for="(roll, index) in currentStep.rolls" :key="`roll-${index}`">
-        <StoryStepRoll :roll="roll" />
-      </template>
+      <StoryStepRoll
+        v-for="(roll, index) in currentStep.rolls"
+        :key="`roll-${index}`"
+        :roll="roll"
+        @update:step="setStep"
+      />
     </div>
 
     <div class="mt-3">
       <template v-for="(option, index) in currentStep.options" :key="`option-${index}`">
-        <StoryStepOption :index="index + 1" :text="option.text" :goto="option.goto" />
+        <StoryStepOption
+          :index="index + 1"
+          :text="option.text"
+          :goto="option.goto"
+          @update:step="setStep"
+        />
       </template>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
-import { useRoute } from 'vue-router';
+import { defineComponent, ref, computed } from 'vue';
 import { story } from '../story/story';
 
 import StoryStepText from '@/components/StoryStepText.vue';
@@ -49,10 +56,12 @@ export default defineComponent({
     StoryAttrChange,
   },
   setup() {
-    const route = useRoute();
-    const { step } = route.params;
-    const currentStep = story.find(s => s.id === (+step || 1));
-    return { story, currentStep };
+    const step = ref(1)
+    const currentStep = computed(() => story.find(s => s.id === (+step.value || 1)))
+    const setStep = (val: number) => {
+      step.value = val
+    }
+    return { step, story, setStep, currentStep }
   },
 });
 </script>
