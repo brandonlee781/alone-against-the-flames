@@ -1485,9 +1485,9 @@ export const story: StoryItem[] = [
     text: `You realize Silas hasn’t made a stop since the incident with the tractor. The motor coach winds its way uphill. However, your thoughts are interrupted as the road crests a ridge and you are treated to a magnificent view of the vista below.
     A creek snakes through the valley, breaking the rich autumn palette of the tree line. In the distance the White Mountains rise into hazy cloud. There is no settlement, not even a cabin, as far as the eye can see. Birds drift through the treetops, and you can just make out what might be two white-tailed deer lingering by the water.
     Perhaps you are making a mistake by moving to the city. Could you survive on your own in this lush wilderness?
-    You have a base ability in most skills, listed in brackets after the skill name on the investigator sheet. For instance, you have 20% in Climb and a base Dodge equal to half your DEX.
+    <i>You have a base ability in most skills, listed in brackets after the skill name on the investigator sheet. For instance, you have 20% in Climb and a base Dodge equal to half your DEX.
     Choose four skills, which are not your occupation skills (nor Cthulhu Mythos). These are your Personal Interest Skills. Boost each of these by 20 points.
-    At this point you may like to calculate half and one-fifth values for each skill, in just the same way you did for your characteristics (see the table on page 23 of Book Two). Remember to round down. If you are bored of calculations, you can leave the math until it becomes necessary. Or, if you are using the interactive PDF version of the investigator sheet, you’ll see it does all the math for you!`,
+    At this point you may like to calculate half and one-fifth values for each skill, in just the same way you did for your characteristics (see the table on page 23 of Book Two). Remember to round down. If you are bored of calculations, you can leave the math until it becomes necessary. Or, if you are using the interactive PDF version of the investigator sheet, you’ll see it does all the math for you!</i>`,
     options: [{ goto: 144 }]
   },
   {
@@ -1638,11 +1638,8 @@ export const story: StoryItem[] = [
   },
   {
     id: 144,
-    text: `The motor coach rattles on through the hills and Silas lapses into silence. The sky darkens behind you, pinks tinting the clouds as the sun descends. Finally a welcome sight comes into view: a settlement on the crest of a hill. This doesn’t look like the pictures you’ve seen of Ossipee. But perhaps you can persuade Silas
-    to stop while you stretch your legs.
-    Minutes later, a harsh stuttering from the engine
-    interrupts your reverie. Silas frowns and rattles the gear stick. The motor coach falters in its ascent. Silas utters a curse you don’t recognize and grinds his teeth, struggling at the wheel. You seem to inch up the hill until you reach the first buildings, low dwellings constructed from a rough red stone. Silas wrestles the coach into a small bay off the road. He scrambles from his seat and makes for the engine
-    compartment.`,
+    text: `The motor coach rattles on through the hills and Silas lapses into silence. The sky darkens behind you, pinks tinting the clouds as the sun descends. Finally a welcome sight comes into view: a settlement on the crest of a hill. This doesn’t look like the pictures you’ve seen of Ossipee. But perhaps you can persuade Silas to stop while you stretch your legs.
+    Minutes later, a harsh stuttering from the engine interrupts your reverie. Silas frowns and rattles the gear stick. The motor coach falters in its ascent. Silas utters a curse you don’t recognize and grinds his teeth, struggling at the wheel. You seem to inch up the hill until you reach the first buildings, low dwellings constructed from a rough red stone. Silas wrestles the coach into a small bay off the road. He scrambles from his seat and makes for the engine compartment.`,
     rolls: [
       {
         skill: Skills.DRIVE_AUTO,
