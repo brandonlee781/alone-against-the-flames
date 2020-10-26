@@ -35,7 +35,10 @@
       <span class="flex w-full items-center p-4 border-b">
         <span class="text-lg text-white">
           Current Roll: 
-          {{ currentRoll }}
+          <Loader v-if="isRolling" />
+          <span v-else>
+            {{ currentRoll }}
+          </span>
         </span>
       </span>
 
@@ -86,9 +89,12 @@ import DiceD10Icon from '@mdi/svg/svg/dice-d10-outline.svg';
 import DiceD20Icon from '@mdi/svg/svg/dice-d20-outline.svg';
 import DiceMultIcon from '@mdi/svg/svg/dice-multiple-outline.svg';
 
+import Loader from './Loader.vue'
+
 export default defineComponent({
   name: 'Navbar',
   components: {
+    Loader,
     DiceD20Icon,
     DiceD10Icon,
     DiceD6Icon,
@@ -101,6 +107,7 @@ export default defineComponent({
   },
   setup() {
     const isOpenLeft = ref(false);
+    const isRolling = ref(false);
     const currentRoll = ref<number | null>(null);
     watch(isOpenLeft, () => {
       if (isOpenLeft.value) document.body.style.setProperty("overflow", "hidden");
@@ -110,14 +117,17 @@ export default defineComponent({
     })
 
     const roll = (max: number) => {
+      isRolling.value = true;
       const roll = Math.floor(Math.random() * max) + 1
       currentRoll.value = roll;
+      setTimeout(() => isRolling.value = false, 1000)
     } 
 
     return {
       isOpenLeft,
       currentRoll,
       roll,
+      isRolling,
     }
   }
 });
