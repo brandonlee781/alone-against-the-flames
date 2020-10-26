@@ -1,6 +1,9 @@
 <template>
   <nav id="nav">
     <div class="flex items-center">
+      <button class="nav-button" @click="incrementTextSize">
+        <FontSizeIcon fill="#efefef" />
+      </button>
       <button class="nav-button" @click="isOpenLeft = !isOpenLeft">
         <DiceD20Icon fill="#efefef" />
       </button>
@@ -88,8 +91,10 @@ import DiceD8Icon from '@mdi/svg/svg/dice-d8-outline.svg';
 import DiceD10Icon from '@mdi/svg/svg/dice-d10-outline.svg';
 import DiceD20Icon from '@mdi/svg/svg/dice-d20-outline.svg';
 import DiceMultIcon from '@mdi/svg/svg/dice-multiple-outline.svg';
+import FontSizeIcon from '@mdi/svg/svg/format-font-size-increase.svg';
 
 import Loader from './Loader.vue'
+import { useState } from '@/store';
 
 export default defineComponent({
   name: 'Navbar',
@@ -104,8 +109,10 @@ export default defineComponent({
     DiceD3Icon,
     DiceMultIcon,
     CloseIcon,
+    FontSizeIcon
   },
   setup() {
+    const state = useState()
     const isOpenLeft = ref(false);
     const isRolling = ref(false);
     const currentRoll = ref<number | null>(null);
@@ -128,6 +135,7 @@ export default defineComponent({
       currentRoll,
       roll,
       isRolling,
+      incrementTextSize: state?.incrementTextSize,
     }
   }
 });

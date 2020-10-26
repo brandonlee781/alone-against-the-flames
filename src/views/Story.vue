@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <StoryStepText :text="currentStep.text"/>
+    <StoryStepText :text="currentStep.text" :textSize="3"/>
 
     <StorySkillUp
       v-if="currentStep.skillUp"
