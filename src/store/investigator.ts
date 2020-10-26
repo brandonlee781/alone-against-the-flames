@@ -1,10 +1,10 @@
-import { reactive } from 'vue'
+import { reactive, provide, inject, readonly } from 'vue'
 
 import Charactersitics from '@/story/characterstics';
 import Attributes from '@/story/attributes';
 import Skills from '@/story/skills';
 
-interface InvestigatorState {
+export interface InvestigatorState {
   info: {
     name: string;
     occupation: string;
@@ -24,7 +24,17 @@ interface InvestigatorState {
   }
 }
 
-export const createInvestigatorState = () => {
+type InfoKey = keyof InvestigatorState["info"]
+interface InvestigatorStore {
+  state: InvestigatorState;
+  setCharacteristic: (char:string, value: number) => void;
+  setAttribute: (attr:string, value: number) => void;
+  setSkill: (skill:string, value: number) => void;
+  setInfo: (info:InfoKey, value: string) => void;
+}
+
+export const stateSymbol = Symbol('investigatorState')
+export const createInvestigatorState = (): InvestigatorStore => {
   const stateSkills: { [key:string]: number } = {}
   Object.keys(Skills).forEach(skill => {
     stateSkills[skill] = 0;
@@ -66,7 +76,21 @@ export const createInvestigatorState = () => {
   const setSkill = (skill: string, value: number) => {
     state.skills[skill] = value
   }
-  const setInfo = (info: keyof InvestigatorState["info"], value: string) => {
+  const setInfo = (info: InfoKey, value: string) => {
     state.info[info] = value
   }
+
+  return {
+    state: readonly(state),
+    setCharacteristic,
+    setAttribute,
+    setSkill,
+    setInfo,
+  }
 }
+
+export const useState = () => inject<InvestigatorStore>(stateSymbol)
+export const provideState = () => provide(
+  stateSymbol,
+  createInvestigatorState()
+)

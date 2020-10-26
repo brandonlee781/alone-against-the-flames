@@ -1,13 +1,16 @@
 import { reactive, provide, inject, readonly } from 'vue'
 
-interface State {
-  state: { textSize: number; };
+interface Store {
+  state: { textSize: number;};
   incrementTextSize: () => void;
+  
 }
 
 export const stateSymbol = Symbol('state')
-export const createState = (): State => {
-  const state = reactive({ textSize: 1 })
+export const createState = (): Store => {
+  const state = reactive({
+    textSize: 1,
+  })
   const incrementTextSize = () => {
     if ((state.textSize + 1) > 3) {
       state.textSize = 0
@@ -17,12 +20,12 @@ export const createState = (): State => {
   }
 
   return {
+    state: readonly(state),
     incrementTextSize,
-    state: readonly(state)
   }
 }
 
-export const useState = () => inject<State>(stateSymbol)
+export const useState = () => inject<Store>(stateSymbol)
 export const provideState = () => provide(
   stateSymbol,
   createState()

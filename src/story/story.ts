@@ -849,8 +849,7 @@ export const story: StoryItem[] = [
     The eyes blink. “Pleased to meet you.”
     “Now get back to bed.”
     The door closes again.
-    “My daughter Ruth. Ten years this summer. She’s a delight
-    and a torment all in one. Don’t worry, she sleeps in with me. She’ll not disturb you. Good night now.”
+    “My daughter Ruth. Ten years this summer. She’s a delight and a torment all in one. Don’t worry, she sleeps in with me. She’ll not disturb you. Good night now.”
     You retire to your room. It is a little chilly, but you are too tired to worry about lighting the fire. The sheets are clean and the bed soon warms up. The silence outside is strange after living in a town for so long, but you soon drop off.`,
     options: [{ goto: 154 }]
   },
@@ -1742,7 +1741,7 @@ export const story: StoryItem[] = [
   {
     id: 154,
     text: `You dream of fire in the grate; coruscating colors shimmering through the dancing tongues of flame. At first they are tiny, almost microscopic, but they grow, and grow, until a kaleidoscopic inferno spills from the fireplace, spreading across the floor, up the sheets...
-    You wake with a start. Daylight glints through the curtains. You get up and examine the grate, blinking the sleep from your eyes. It is quite cold. If you have taken any damage, you may heal 1 hit point back for your night’s sleep.`,
+    You wake with a start. Daylight glints through the curtains. You get up and examine the grate, blinking the sleep from your eyes. It is quite cold. <i>If you have taken any damage, you may heal 1 hit point back for your night’s sleep.</i>`,
     options: [{ goto: 166 }]
   },
   {
