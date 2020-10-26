@@ -1,7 +1,7 @@
 <template>
   <div class="w-full rounded overflow-hidden shadow-lg border border-white my-2">
     <div class="p-4">
-      <div class="flex items-center font-bold text-left text-md mb-2">
+      <div class="flex items-center font-bold text-left text-md">
         <span>
           <HeartIcon fill="#efefef"/>
         </span>
