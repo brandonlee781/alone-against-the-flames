@@ -1532,11 +1532,11 @@ export const story: StoryItem[] = [
     id: 134,
     text: `The coach putters through the countryside. At first, the interior is stifling and your stomach lurches with every bend in the road. However, the driver opens his window, and by switching seats you find a spot where the breeze hits your face. You soon relax into the journey, observing the quaint little hamlets that the coach serves. A heavy-set woman boards at one settlement and gives you a polite nod. She gets off at the next one.
     The road rises a little, passing cornfields and orchards. The leaves are turning and the trees are alive with glorious reds and golds. You have just begun to doze when the driver takes a tight bend at speed.
-    Add SIZ and CON together, then divide the total by 10, rounding down. This is the starting value for your hit points. Mark it on your investigator sheet. Your current total may drop, but it is unlikely to exceed the starting value.
+    <i>Add SIZ and CON together, then divide the total by 10, rounding down. This is the starting value for your hit points. Mark it on your investigator sheet. Your current total may drop, but it is unlikely to exceed the starting value.
     You also have a Luck score. Roll three six-sided dice. We call this “3D6.” Multiply your 3D6 roll result by 5 to get your beginning Luck score and mark it on your investigator sheet.
     Now you must make a roll against your DEX. Roll 1D100. This means rolling two ten-sided dice and using one value for the tens and one value for the units (unless one die is clearly a tens die, see Roleplaying Dice on page 4 for further details.)
     If you rolled equal to your DEX, or less, you passed the roll. If you rolled greater than your DEX, you failed the roll.
-    You may be tempted to skip such rolls and simply pretend you always pass. But Call of Cthulhu is a game of mystery and horror. The terrible disasters that can befall your character are part of the fun. You will not necessarily have more fun if you pass every roll than you would have if you failed.`,
+    You may be tempted to skip such rolls and simply pretend you always pass. But Call of Cthulhu is a game of mystery and horror. The terrible disasters that can befall your character are part of the fun. You will not necessarily have more fun if you pass every roll than you would have if you failed.</i>`,
     rolls: [
       {
         characteristic: Characterstics.DEX,

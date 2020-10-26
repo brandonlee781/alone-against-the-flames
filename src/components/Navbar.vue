@@ -143,8 +143,8 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 #nav {
-  @apply flex flex-row-reverse w-full items-center justify-between
-         px-2 h-16 bg-transparent text-gray-700
+  @apply flex fixed top-0 flex-row-reverse w-full items-center justify-between
+         px-2 h-16 bg-gray-800 text-gray-700
          border-b border-gray-900 z-10;
 
   a {

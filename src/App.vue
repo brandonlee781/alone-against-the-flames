@@ -1,6 +1,8 @@
 <template>
   <Navbar></Navbar>
-  <router-view :key="$route.fullPath"/>
+  <div class="mt-16">
+    <router-view :key="$route.fullPath"/>
+  </div>
 </template>
 
 <script>
