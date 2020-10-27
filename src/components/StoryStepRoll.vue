@@ -65,7 +65,7 @@ export default defineComponent({
     @apply text-white border-transparent;
   }
 }
-
+/* 
 @screen md {
   .wrapper {
     @apply w-full flex flex-row;
@@ -74,7 +74,7 @@ export default defineComponent({
       @apply w-1/2
     }
   }
-}
+} */
 
 @screen sm {
   .wrapper {

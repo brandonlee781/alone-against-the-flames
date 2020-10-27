@@ -1,29 +1,36 @@
 <template>
-  <div class="wrapper">
-    <StoryStepText :text="currentStep.text" :textSize="3"/>
+  <div class="wrapper grid grid-rows-1 sm:grid-cols-1 md:grid-cols-2">
 
-    <StorySkillUp
-      v-if="currentStep.skillUp"
-      :skill="currentStep.skillUp.skill"
-      :text="currentStep.skillUp.text"
-    />
-
-    <div class="mt-3">
-      <template v-for="(change, index) in currentStep.attributeChange" :key="`change-${index}`">
-        <StoryAttrChange :change="change" />
-      </template>
+    <div class="story-text sm:mb-3">
+      <StoryStepText :text="currentStep.text" :textSize="3"/>
     </div>
 
-    <div class="mt-3">
-      <template v-for="(roll, index) in currentStep.rolls" :key="`roll-${index}`">
-        <StoryStepRoll :roll="roll" />
-      </template>
-    </div>
+    <div class="story-opts">
+      <StorySkillUp
+        v-if="currentStep.skillUp"
+        :skill="currentStep.skillUp.skill"
+        :text="currentStep.skillUp.text"
+      />
 
-    <div class="mt-3">
-      <template v-for="(option, index) in currentStep.options" :key="`option-${index}`">
-        <StoryStepOption :index="index + 1" :text="option.text" :goto="option.goto" />
-      </template>
+      <StoryAttrChange
+        v-for="(change, index) in currentStep.attributeChange"
+        :key="`change-${index}`"
+        :change="change"
+      />
+
+      <StoryStepRoll
+        v-for="(roll, index) in currentStep.rolls"
+        :key="`roll-${index}`"
+        :roll="roll"
+      />
+
+      <StoryStepOption
+        v-for="(option, index) in currentStep.options"
+        :key="`option-${index}`"
+        :index="index + 1"
+        :text="option.text"
+        :goto="option.goto"
+      />
     </div>
   </div>
 </template>
@@ -49,10 +56,11 @@ export default defineComponent({
     StoryAttrChange,
   },
   setup() {
-    const route = useRoute();
-    const { step } = route.params;
-    const currentStep = story.find(s => s.id === (+step || 1));
-    return { story, currentStep };
+    document.title = 'Alone Against the Flames'
+    const route = useRoute()
+    const { step } = route.params
+    const currentStep = story.find(s => s.id === (+step || 1))
+    return { story, currentStep }
   },
 });
 </script>

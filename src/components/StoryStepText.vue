@@ -1,14 +1,5 @@
 <template>
-  <div
-    :class="{
-      'step-text': true,
-      'text-sm': textSize === 0,
-      'text-base': textSize === 1,
-      'text-lg': textSize === 2,
-      'text-xl': textSize === 3,
-    }"
-    v-html="text"
-  ></div>
+  <div :class="`step-text ${textClass}`" v-html="text"></div>
 </template>
 
 <script lang="ts">
@@ -25,8 +16,20 @@ export default defineComponent({
   },
   setup() {
     const state = useState()
-    const textSize = computed(() => state?.state.textSize)
-    return { textSize }
+    const textClass = computed(() => {
+      switch(state?.state.textSize) {
+        case 0:
+          return 'text-sm'
+        case 2:
+          return 'text-lg'
+        case 3:
+          return 'text-xl'
+        case 1:
+        default:
+          return 'text-base'
+      }
+    })
+    return { textClass }
   }
 });
 </script>
